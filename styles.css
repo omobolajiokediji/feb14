@@ -1,0 +1,131 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fde3e4;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 400px; /* Adjust maximum width as needed */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .envelope {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f9f3d7;
+    border: 4px solid #ddc8ae;
+    border-radius: 10px;
+  }
+  
+  .envelope-top {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 60px;
+    height: 30px;
+    background-color: #f9f3d7;
+    border-top: 4px solid #ddc8ae;
+    border-left: 4px solid #ddc8ae;
+    border-right: 4px solid #ddc8ae;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transform: translateX(-50%);
+  }
+  
+  .envelope-body {
+    height: calc(100% - 30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tangerine-regular {
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .tangerine-bold {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  
+  .note {
+    width: 150px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddc8ae;
+    font-family: 'Tangerine', cursive; /* Romantic font type */
+    font-size: 15px;
+    padding: 20px;
+  }
+  
+  .message {
+    margin-top: 20px;
+    font-size: 30px;
+    padding: 10px;
+    font-family: 'Tangerine', cursive; /* Romantic font type */
+    color: #c70039;
+  }
+  
+  .emojis {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  /* Add the following style to hide the message by default */
+.note {
+    display: none;
+  }
+  /* Add the following style to initially hide the message */
+  .hidden {
+    display: none;
+  }
+  
+  
+  /* Add the following style to make the envelope appear open by default */
+  .envelope.opened .envelope-top {
+    top: 0;
+  }
+  .envelope.opened .envelope-body {
+    height: calc(100% - 30px);
+  }
+
+  
+  @keyframes move-emojis {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(-100vh) translateX(calc(100vw - 2rem));
+    }
+  }
+  
+  .emojis-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+    
+  .emojis-background::before {
+    content: "❤️💕💖💘💗💓💞💝";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+    animation: move-emojis 20s linear infinite;
+  }
